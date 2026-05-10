@@ -1,4 +1,4 @@
-import useWeather from "../../hooks/useWeather";
+import useWeather from "../../hooks/useClima";
 
 function Home() {
   const { weather } = useWeather();

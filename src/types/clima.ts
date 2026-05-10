@@ -1,4 +1,4 @@
-export interface WeatherData {
+export interface DadosClima {
   current_weather: {
     temperature: number;
     windspeed: number;
