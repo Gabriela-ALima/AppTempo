@@ -1,9 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Login } from "../pages/Login";
-import { Dashboard } from "../pages/Dashboard";
-import { List } from "../pages/List";
-import { Detail } from "../pages/Detail";
-import { Settings } from "../pages/Settings";
+
+import Login from "../pages/login/Login";
+import Dashboard from "../pages/dashboard/Dashboard";
+import List from "../pages/list/List";
+import Detail from "../pages/detail/Detail";
+import Settings from "../pages/settings/Settings";
 
 export function AppRoutes() {
   return (
