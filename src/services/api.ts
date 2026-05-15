@@ -4,9 +4,13 @@ export const api = axios.create({
   baseURL: "https://api.open-meteo.com/v1",
 });
 
-export async function buscarClima() {
+export async function buscarClima(
+  latitude: number,
+  longitude: number
+) {
+
   const response = await api.get(
-    "/forecast?latitude=-30.03&longitude=-51.23&current_weather=true"
+    `/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`
   );
 
   return response.data;

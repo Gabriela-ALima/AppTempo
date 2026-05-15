@@ -1,0 +1,134 @@
+.register-container {
+  min-height: 100vh;
+
+  display: flex;
+
+  background: linear-gradient(
+    to bottom,
+    #87ceeb,
+    #dff6ff
+  );
+}
+
+.register-imagem {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  color: white;
+
+  text-align: center;
+
+  padding: 40px;
+}
+
+.icone-register {
+  font-size: 180px;
+
+  margin-bottom: 20px;
+}
+
+.register-imagem h1 {
+  font-size: 64px;
+
+  margin-bottom: 20px;
+}
+
+.register-imagem p {
+  font-size: 24px;
+
+  max-width: 400px;
+
+  line-height: 1.5;
+}
+
+.register-formulario {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.register-card {
+  width: 100%;
+
+  max-width: 420px;
+
+  background: rgba(255,255,255,0.85);
+
+  backdrop-filter: blur(10px);
+
+  padding: 40px;
+
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.register-card h2 {
+  font-size: 36px;
+
+  color: #2563eb;
+
+  margin-bottom: 24px;
+}
+
+.register-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.register-card input {
+  padding: 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid #cbd5e1;
+
+  font-size: 16px;
+
+  outline: none;
+}
+
+.register-card button {
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #60a5fa;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+}
+
+.voltar-login {
+  margin-top: 24px;
+
+  text-align: center;
+}
+
+.voltar-login a {
+  color: #2563eb;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}

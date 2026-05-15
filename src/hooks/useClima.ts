@@ -8,6 +8,7 @@ import type { DadosClima }
 from "../types/clima";
 
 interface UseClimaRetorno {
+
   clima: DadosClima | null;
 
   erro: string;
@@ -29,28 +30,47 @@ UseClimaRetorno {
 
   useEffect(() => {
 
-    async function carregarClima() {
+    navigator.geolocation.getCurrentPosition(
 
-      try {
+      async (posicao) => {
 
-        const dados =
-          await buscarClima();
+        try {
 
-        setClima(dados);
+          const latitude =
+            posicao.coords.latitude;
 
-      } catch {
+          const longitude =
+            posicao.coords.longitude;
+
+          const dados =
+            await buscarClima(
+              latitude,
+              longitude
+            );
+
+          setClima(dados);
+
+        } catch {
+
+          setErro(
+            "Erro ao carregar clima"
+          );
+
+        } finally {
+
+          setCarregando(false);
+        }
+      },
+
+      () => {
 
         setErro(
-          "Erro ao carregar clima"
+          "Permissão de localização negada"
         );
-
-      } finally {
 
         setCarregando(false);
       }
-    }
-
-    carregarClima();
+    );
 
   }, []);
 

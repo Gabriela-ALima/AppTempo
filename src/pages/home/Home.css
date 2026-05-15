@@ -1,0 +1,193 @@
+.home-container {
+  min-height: 100vh;
+
+  display: flex;
+
+  background: linear-gradient(
+    to bottom,
+    #87ceeb,
+    #dff6ff
+  );
+}
+
+.home-imagem {
+  flex: 1;
+
+  display: flex;
+  flex-direction: column;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+
+  color: white;
+
+  text-align: center;
+}
+
+.icone-clima-home {
+  font-size: 180px;
+
+  margin-bottom: 20px;
+}
+
+.home-imagem h1 {
+  font-size: 64px;
+
+  margin-bottom: 20px;
+}
+
+.home-imagem p {
+  font-size: 24px;
+
+  max-width: 400px;
+
+  line-height: 1.5;
+}
+
+.home-formulario {
+  flex: 1;
+
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  padding: 40px;
+}
+
+.formulario-card {
+  width: 100%;
+
+  max-width: 420px;
+
+  background: rgba(255,255,255,0.85);
+
+  backdrop-filter: blur(10px);
+
+  padding: 40px;
+
+  border-radius: 24px;
+
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.formulario-card h2 {
+  font-size: 36px;
+
+  color: #2563eb;
+
+  margin-bottom: 10px;
+}
+
+.subtitulo {
+  color: #475569;
+
+  margin-bottom: 30px;
+
+  line-height: 1.5;
+}
+
+.formulario-card form {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 18px;
+}
+
+.formulario-card input {
+  padding: 16px;
+
+  border-radius: 12px;
+
+  border: 1px solid #cbd5e1;
+
+  font-size: 16px;
+
+  outline: none;
+
+  transition: 0.3s;
+}
+
+.formulario-card input:focus {
+  border-color: #60a5fa;
+
+  box-shadow: 0 0 0 4px rgba(96,165,250,0.2);
+}
+
+.formulario-card button {
+  padding: 16px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #60a5fa;
+
+  color: white;
+
+  font-size: 18px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.formulario-card button:hover {
+  background: #3b82f6;
+}
+
+.cadastro-link {
+  margin-top: 24px;
+
+  text-align: center;
+}
+
+.cadastro-link p {
+  margin-bottom: 8px;
+
+  color: #475569;
+}
+
+.cadastro-link a {
+  color: #2563eb;
+
+  font-weight: bold;
+
+  text-decoration: none;
+}
+
+.cadastro-link a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+
+  .home-container {
+    flex-direction: column;
+  }
+
+  .home-imagem {
+    padding-top: 80px;
+  }
+
+  .icone-clima-home {
+    font-size: 120px;
+  }
+
+  .home-imagem h1 {
+    font-size: 48px;
+  }
+
+  .home-imagem p {
+    font-size: 20px;
+  }
+
+  .formulario-card {
+    padding: 32px;
+  }
+}
