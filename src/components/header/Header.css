@@ -11,8 +11,6 @@
 
   align-items: center;
 
-  margin-bottom: 40px;
-
   border-bottom: 1px solid #c7e4ff;
 }
 
@@ -22,6 +20,8 @@
   font-weight: bold;
 
   color: #2563eb;
+
+  margin: 0;
 }
 
 .botao-login {

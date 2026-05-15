@@ -1,15 +1,45 @@
-import useWeather from "../../hooks/useClima";
+import useClima
+from "../../hooks/useClima";
 
 function Home() {
-  const { weather } = useWeather();
+
+  const {
+    clima,
+    carregando,
+    erro,
+  } = useClima();
+
+  if (carregando) {
+    return (
+      <p>
+        Carregando clima...
+      </p>
+    );
+  }
+
+  if (erro) {
+    return (
+      <p>
+        {erro}
+      </p>
+    );
+  }
 
   return (
     <div>
-      <h1>Climafy</h1>
+
+      <h1>
+        AppTempo
+      </h1>
 
       <pre>
-        {JSON.stringify(weather, null, 2)}
+        {JSON.stringify(
+          clima,
+          null,
+          2
+        )}
       </pre>
+
     </div>
   );
 }
