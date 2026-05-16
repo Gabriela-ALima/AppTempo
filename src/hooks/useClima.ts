@@ -1,11 +1,15 @@
-import { useEffect, useState }
-from "react";
+import {
+  useEffect,
+  useState,
+} from "react";
 
-import { buscarClima }
-from "../services/api";
+import {
+  buscarClima,
+} from "../services/api";
 
-import type { DadosClima }
-from "../types/clima";
+import type {
+  DadosClima,
+} from "../types/clima";
 
 interface UseClimaRetorno {
 
@@ -16,8 +20,9 @@ interface UseClimaRetorno {
   carregando: boolean;
 }
 
-function useClima():
-UseClimaRetorno {
+function useClima(
+  cidade: string
+): UseClimaRetorno {
 
   const [clima, setClima] =
     useState<DadosClima | null>(null);
@@ -30,49 +35,36 @@ UseClimaRetorno {
 
   useEffect(() => {
 
-    navigator.geolocation.getCurrentPosition(
+    async function carregarClima() {
 
-      async (posicao) => {
+      try {
 
-        try {
+        setCarregando(true);
 
-          const latitude =
-            posicao.coords.latitude;
-
-          const longitude =
-            posicao.coords.longitude;
-
-          const dados =
-            await buscarClima(
-              latitude,
-              longitude
-            );
-
-          setClima(dados);
-
-        } catch {
-
-          setErro(
-            "Erro ao carregar clima"
+        const dados =
+          await buscarClima(
+            cidade
           );
 
-        } finally {
+        setClima(dados);
 
-          setCarregando(false);
-        }
-      },
+        setErro("");
 
-      () => {
+      } catch {
 
         setErro(
-          "Permissão de localização negada"
+          "Erro ao carregar clima"
         );
+
+      } finally {
 
         setCarregando(false);
       }
-    );
+    }
 
-  }, []);
+    carregarClima();
+
+  }, [cidade]);
 
   return {
     clima,

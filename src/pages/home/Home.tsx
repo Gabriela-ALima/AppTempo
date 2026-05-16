@@ -1,5 +1,11 @@
-import { Link, useNavigate }
-from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+} from "react-router-dom";
+
+import {
+  useState,
+} from "react";
 
 import {
   WiDayCloudy,
@@ -11,6 +17,15 @@ function Home() {
 
   const navigate =
     useNavigate();
+
+  const [cidade, setCidade] =
+    useState("");
+
+  const [email, setEmail] =
+    useState("");
+
+  const [senha, setSenha] =
+    useState("");
 
   return (
 
@@ -51,23 +66,45 @@ function Home() {
 
               evento.preventDefault();
 
-              navigate("/dashboard");
+              navigate("/dashboard", {
+                state: {
+                  cidade,
+                },
+              });
             }}
           >
 
             <input
               type="text"
               placeholder="Digite sua cidade"
+              value={cidade}
+              onChange={(evento) =>
+                setCidade(
+                  evento.target.value
+                )
+              }
             />
 
             <input
               type="email"
               placeholder="Digite seu email"
+              value={email}
+              onChange={(evento) =>
+                setEmail(
+                  evento.target.value
+                )
+              }
             />
 
             <input
               type="password"
               placeholder="Digite sua senha"
+              value={senha}
+              onChange={(evento) =>
+                setSenha(
+                  evento.target.value
+                )
+              }
             />
 
             <button type="submit">

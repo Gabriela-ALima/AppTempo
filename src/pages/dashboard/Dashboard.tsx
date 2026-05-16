@@ -1,4 +1,9 @@
-import useClima from "../../hooks/useClima";
+import {
+  useLocation,
+} from "react-router-dom";
+
+import useClima
+from "../../hooks/useClima";
 
 import Header
 from "../../components/header/Header";
@@ -19,17 +24,26 @@ import {
   MdAccessTime,
 } from "react-icons/md";
 
-import { obterClima }
-from "../../utils/clima";
+import {
+  obterClima,
+} from "../../utils/clima";
 
 import "./Dashboard.css";
 
 function Dashboard() {
 
+  const location =
+    useLocation();
+
+  const cidade =
+    location.state?.cidade ||
+    "Porto Alegre";
+
   const {
     clima,
     erro,
-  } = useClima();
+    carregando,
+  } = useClima(cidade);
 
   const dadosClima =
     clima
@@ -46,7 +60,7 @@ function Dashboard() {
     );
   }
 
-  if (!clima) {
+  if (carregando || !clima) {
     return (
       <div className="carregando">
 
@@ -62,10 +76,17 @@ function Dashboard() {
     );
   }
 
+  const horario =
+    clima.current_weather.time;
+
+  const data =
+    horario.split("T")[0];
+
+  const hora =
+    horario.split("T")[1];
+
   const horarioFormatado =
-    new Date(
-      clima.current_weather.time
-    ).toLocaleString("pt-BR");
+    `${data} ${hora}`;
 
   return (
     <>
@@ -81,7 +102,7 @@ function Dashboard() {
         <div className="cidade-container">
 
           <h2>
-            📍 Porto Alegre - RS
+            📍 {cidade}
           </h2>
 
           <div className="clima-atual">
@@ -109,7 +130,9 @@ function Dashboard() {
               className="icone"
             />
 
-            <h2>Temperatura</h2>
+            <h2>
+              Temperatura
+            </h2>
 
             <p className="info-clima">
               {clima.current_weather.temperature}°C
@@ -123,7 +146,9 @@ function Dashboard() {
               className="icone"
             />
 
-            <h2>Vento</h2>
+            <h2>
+              Vento
+            </h2>
 
             <p className="info-clima">
               {clima.current_weather.windspeed} km/h
@@ -137,7 +162,9 @@ function Dashboard() {
               className="icone"
             />
 
-            <h2>Horário</h2>
+            <h2>
+              Horário
+            </h2>
 
             <p className="info-clima">
               {horarioFormatado}
